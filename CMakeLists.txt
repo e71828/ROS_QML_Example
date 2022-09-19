@@ -1,8 +1,12 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 2.8.12)
 project(pubsub)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
+if(MSVC)
+    set(CMAKE_CXX_STANDARD 11)
+else()
 add_compile_options(-std=c++11)
+endif()
 
 ## Find catkin macros and libraries
 find_package(catkin REQUIRED COMPONENTS
@@ -92,11 +96,11 @@ qt5_use_modules(listener_qml Core Qml Quick)
 qt5_use_modules(talker_qml Core Qml Quick)
 
 target_link_libraries(listener_qml
-  ${catkin_LIBRARIES}
+  ${catkin_LIBRARIES} Qt5::Quick
 )
 
 target_link_libraries(talker_qml
-  ${catkin_LIBRARIES}
+  ${catkin_LIBRARIES} Qt5::Quick
 )
 
 ########################################
