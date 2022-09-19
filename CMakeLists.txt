@@ -96,11 +96,11 @@ qt5_use_modules(listener_qml Core Qml Quick)
 qt5_use_modules(talker_qml Core Qml Quick)
 
 target_link_libraries(listener_qml
-  ${catkin_LIBRARIES} Qt5::Quick
+  ${catkin_LIBRARIES}
 )
 
 target_link_libraries(talker_qml
-  ${catkin_LIBRARIES} Qt5::Quick
+  ${catkin_LIBRARIES}
 )
 
 ########################################
